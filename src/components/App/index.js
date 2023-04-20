@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import List from "../List";
 import Input from "../Input";
@@ -8,6 +8,10 @@ import "./App.css";
 function App() {
   console.log("App rerender");
   const [toDos, setToDos] = useState(["test"]);
+
+  useEffect(() => {
+    document.title = `${toDos.length} things to do...`;
+  }, [toDos]);
 
   function handleDelete(i) {
     console.log("%chandle delete", "color:lightblue");
